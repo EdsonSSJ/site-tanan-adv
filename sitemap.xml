@@ -3,7 +3,7 @@
 
   <!-- Página Principal -->
   <url>
-    <loc>https://www.tananetelesadv.com.br/</loc>
+    <loc>https://tananadv.com.br/</loc>
     <lastmod>2024-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
@@ -12,31 +12,31 @@
   <!-- TODO REBRANDING: decisão pendente sobre manter, atualizar ou remover estas URLs de blog (páginas não existem no repositório) -->
   <!-- Artigos do Blog -->
   <url>
-    <loc>https://www.tananetelesadv.com.br/blog/guia-revisao-aposentadoria-inss</loc>
+    <loc>https://tananadv.com.br/blog/guia-revisao-aposentadoria-inss</loc>
     <lastmod>2024-07-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.tananetelesadv.com.br/blog/rescisao-indireta-quando-demitir-o-patrao</loc>
+    <loc>https://tananadv.com.br/blog/rescisao-indireta-quando-demitir-o-patrao</loc>
     <lastmod>2024-07-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.tananetelesadv.com.br/blog/cobranca-abusiva-e-nome-negativado</loc>
+    <loc>https://tananadv.com.br/blog/cobranca-abusiva-e-nome-negativado</loc>
     <lastmod>2024-07-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.tananetelesadv.com.br/blog/divorcio-em-cartorio-processo-extrajudicial</loc>
+    <loc>https://tananadv.com.br/blog/divorcio-em-cartorio-processo-extrajudicial</loc>
     <lastmod>2024-07-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.tananetelesadv.com.br/blog/isencao-de-impostos-para-empresas</loc>
+    <loc>https://tananadv.com.br/blog/isencao-de-impostos-para-empresas</loc>
     <lastmod>2024-07-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
