@@ -9,6 +9,7 @@
     <priority>1.0</priority>
   </url>
 
+  <!-- TODO REBRANDING: decisão pendente sobre manter, atualizar ou remover estas URLs de blog (páginas não existem no repositório) -->
   <!-- Artigos do Blog -->
   <url>
     <loc>https://www.tananetelesadv.com.br/blog/guia-revisao-aposentadoria-inss</loc>
