@@ -5,15 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tanan Assessoria e Consultoria Jurídica</title>
-    <!-- TODO REBRANDING: decisão pendente sobre manter a mesma propriedade GA4 (G-8935R95TKX) do site antigo ou criar uma nova para a marca nova -->
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8935R95TKX"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NXVE44HSRH"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
-        gtag('config', 'G-8935R95TKX');
+        gtag('config', 'G-NXVE44HSRH');
     </script>
     <link rel="icon" href="assets/brand/favicon-tanan-adv.png" type="image/png">
     <meta name="description"
@@ -411,7 +410,7 @@
             <!-- TODO REBRANDING: decisão pendente sobre manter o e-mail de contato pessoal (carolinetanan.adv@gmail.com) ou trocar por e-mail institucional da nova marca -->
             <p class="mb-4">
                 Av. Luís Viana Filho, 13223 - São Cristóvão, Salvador - BA, 41500-300 |
-                carolinetanan.adv@gmail.com | (71) 99914-7067
+                carolinetanan.adv@gmail.com | <a href="tel:+5571999147067">(71) 99914-7067</a>
             </p>
             <p>&copy; <span id="ano-atual">2024</span> Tanan Assessoria e Consultoria Jurídica. Todos os direitos
                 reservados.</p>
@@ -627,6 +626,32 @@
     </script>
     <script>
         document.getElementById('ano-atual').textContent = new Date().getFullYear();
+    </script>
+    <script>
+        // --- RASTREAMENTO DE CONVERSÕES (GA4 / Google Ads) ---
+        // transport_type 'beacon' garante o envio mesmo se a página navegar logo em seguida
+        document.addEventListener('click', (e) => {
+            const link = e.target.closest('a[href]');
+            if (!link) return;
+            const href = link.getAttribute('href');
+
+            // Botão do chatbot que abre o WhatsApp (wa.me)
+            if (href.startsWith('https://wa.me/')) {
+                gtag('event', 'generate_lead', { method: 'whatsapp', transport_type: 'beacon' });
+            }
+
+            // Qualquer link tel: do site
+            if (href.startsWith('tel:')) {
+                gtag('event', 'click_telefone', { transport_type: 'beacon' });
+            }
+        }, true);
+
+        // Formulário de contato (FormSubmit.co): dispara sem bloquear o envio
+        document.addEventListener('submit', (e) => {
+            if (e.target.matches('form[action*="formsubmit.co"]')) {
+                gtag('event', 'generate_lead', { method: 'formulario', transport_type: 'beacon' });
+            }
+        }, true);
     </script>
 </body>
 
