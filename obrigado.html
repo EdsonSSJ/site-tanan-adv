@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obrigado | Tanan Assessoria e Consultoria Jurídica</title>
+    <meta name="robots" content="noindex, nofollow">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NXVE44HSRH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-NXVE44HSRH');
+    </script>
+    <link rel="icon" href="assets/brand/favicon-tanan-adv.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script>
+        // Configuração do Tailwind CSS com a identidade visual da marca
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Poppins', 'sans-serif'],
+                        'display': ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-wine': {
+                            '900': '#611311', // Vinho Imperial
+                        },
+                        'brand-bordo': '#7A161A', // Bordô Contemporâneo
+                        'brand-sand': '#E8C39E', // Areia Serenidade
+                        'brand-cream': '#F6E3D0', // Creme Harmonia
+                        'brand-dune': '#E8DDCE', // Duna Equilíbrio
+                        'brand-white': '#F7EFE8', // Branco Suave
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-brand-white text-brand-wine-900 font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- Cabeçalho -->
+    <header class="bg-brand-white/80 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-2 flex justify-between items-center">
+            <a href="index.html" class="flex-shrink-0">
+                <img src="assets/brand/logo-tanan-adv.svg" alt="Logo Tanan Assessoria e Consultoria Jurídica"
+                    class="h-10 md:h-14 w-auto">
+            </a>
+            <a href="index.html"
+                class="text-brand-wine-900 hover:text-brand-bordo font-semibold transition-colors duration-300">&larr;
+                Voltar ao site</a>
+        </div>
+    </header>
+
+    <!-- Confirmação de envio -->
+    <main class="flex-grow">
+        <section class="py-16 md:py-28 bg-brand-cream">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="bg-brand-white p-8 sm:p-12 rounded-2xl shadow-2xl max-w-2xl mx-auto text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-20 h-20 mx-auto mb-6 text-brand-bordo" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <h1 class="text-3xl md:text-4xl font-display font-bold text-brand-wine-900">Mensagem recebida!</h1>
+                    <p class="text-gray-700 mt-4 text-lg">Obrigado pelo contato. Recebemos sua mensagem e nossa equipe
+                        retornará em breve.</p>
+                    <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                        <a id="whatsapp-button" href="#" target="_blank"
+                            class="bg-brand-wine-900 hover:bg-brand-bordo text-white font-bold py-3 px-6 rounded-lg text-lg transition-all duration-300 hover:scale-105 shadow-md">Falar
+                            agora pelo WhatsApp</a>
+                        <a href="index.html"
+                            class="border-2 border-brand-wine-900 text-brand-wine-900 hover:bg-brand-wine-900 hover:text-white font-bold py-3 px-6 rounded-lg text-lg transition-all duration-300">Voltar
+                            ao início</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-brand-cream">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-600">
+            <p class="mb-4">
+                Av. Luís Viana Filho, 13223 - São Cristóvão, Salvador - BA, 41500-300 |
+                carolinetanan.adv@gmail.com | <a href="tel:+5571999147067">(71) 99914-7067</a>
+            </p>
+            <p>&copy; <span id="ano-atual">2024</span> Tanan Assessoria e Consultoria Jurídica. Todos os direitos
+                reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const whatsappNumber = '5571999147067'; // Número de telefone do WhatsApp (manter igual ao index.html)
+        const whatsappMessage = 'Olá! Acabei de enviar uma mensagem pelo site da Tanan Assessoria e Consultoria Jurídica.';
+        document.getElementById('whatsapp-button').href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+        document.getElementById('ano-atual').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
