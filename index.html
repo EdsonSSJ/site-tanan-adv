@@ -681,7 +681,6 @@
 
                 if (currentQuestion.key === 'phone' && !parseCelular(userInput).valido) {
                     addMessage('Não consegui entender o número. Informe o celular com DDD e 9 dígitos, por exemplo (71) 99999-9999.', 'bot');
-                    addMessage(currentQuestion.question, 'bot');
                     chatInput.value = '';
                     return;
                 }
