@@ -392,7 +392,8 @@
                             </div>
                             <div>
                                 <label for="phone" class="block text-gray-700 mb-2 font-semibold">Telefone</label>
-                                <input type="tel" id="phone" name="telefone"
+                                <input type="tel" id="phone" name="telefone" inputmode="numeric"
+                                    autocomplete="tel-national" placeholder="(71) 99999-9999"
                                     class="w-full bg-brand-dune/50 border-transparent text-brand-wine-900 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-brand-sand transition-colors"
                                     required>
                             </div>
@@ -550,6 +551,23 @@
             link.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappDefaultMessage)}`;
         });
 
+        // Máscara e validação de celular brasileiro, no formato (71) 99999-9999 (usada no formulário e no chat)
+        const parseCelular = (value) => {
+            let digits = value.replace(/\D/g, '');
+            if (digits.length >= 13 && digits.startsWith('55')) digits = digits.slice(2); // +55 colado
+            if (digits.startsWith('0')) digits = digits.slice(1); // 0 antes do DDD
+            digits = digits.slice(0, 11);
+
+            let formatado = digits;
+            if (digits.length > 7) formatado = `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+            else if (digits.length > 2) formatado = `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+            else if (digits.length > 0) formatado = `(${digits}`;
+
+            const valido = digits.length === 11 && Number(digits.slice(0, 2)) >= 11 && digits[2] === '9';
+            return { formatado, valido };
+        };
+        const celularInvalidoMsg = 'Informe um celular com DDD e 9 dígitos. Ex.: (71) 99999-9999';
+
         // --- LÓGICA DO ASSISTENTE VIRTUAL ---
         document.addEventListener('DOMContentLoaded', () => {
             const chatOpenButton = document.getElementById('chat-open-button');
@@ -660,9 +678,24 @@
 
                 addMessage(userInput, 'user');
                 const currentQuestion = conversationFlow[currentStep];
+
+                if (currentQuestion.key === 'phone' && !parseCelular(userInput).valido) {
+                    addMessage('Não consegui entender o número. Informe o celular com DDD e 9 dígitos, por exemplo (71) 99999-9999.', 'bot');
+                    addMessage(currentQuestion.question, 'bot');
+                    chatInput.value = '';
+                    return;
+                }
+
                 userData[currentQuestion.key] = userInput;
 
                 askNextQuestion();
+            });
+
+            // Máscara de celular na resposta da pergunta do telefone
+            chatInput.addEventListener('input', () => {
+                if (conversationFlow[currentStep]?.key === 'phone') {
+                    chatInput.value = parseCelular(chatInput.value).formatado;
+                }
             });
 
             // Event Listeners dos botões
@@ -678,8 +711,18 @@
         const contactStatus = document.getElementById('contact-form-status');
         const submitButton = contactForm.querySelector('button[type="submit"]');
         const originalText = submitButton.innerHTML;
+        const phoneInput = document.getElementById('phone');
+        phoneInput.addEventListener('input', () => {
+            phoneInput.value = parseCelular(phoneInput.value).formatado;
+            phoneInput.setCustomValidity('');
+        });
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
+            if (!parseCelular(phoneInput.value).valido) {
+                phoneInput.setCustomValidity(celularInvalidoMsg);
+                phoneInput.reportValidity();
+                return;
+            }
             submitButton.disabled = true;
             submitButton.textContent = 'Enviando...';
             contactStatus.classList.add('hidden');
